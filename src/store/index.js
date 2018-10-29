@@ -8,6 +8,9 @@ const store = window.$store = new Vuex.Store({
     getDbData (state) {
       console.log('chandan getter')
       return state.dbData
+    },
+    getIndex (state) {
+      return state.index
     }
   },
   mutations: {

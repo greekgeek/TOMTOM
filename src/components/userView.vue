@@ -16,7 +16,7 @@
         <label class="mdc-floating-label" for="my-text-field">Mobile Number</label>
         <div class="mdc-line-ripple"></div>
       </div>
-      <button class="btn" v-on:click="func()">Send</button>
+      <button class="btn" v-on:click="func">Send</button>
     </div>
   </div>
 </template>
@@ -33,18 +33,22 @@ export default {
   },
   computed: {
     ...mapState(['dbData']),
-    ...mapGetters(['getDbData'])
+    ...mapGetters(['getDbData',
+      'getIndex'
+    ])
   },
   created () {
-    console.log('MDCTextField is: ')
+    console.log('index is: ', this.getIndex)
   },
-  method: {
+  methods: {
     ...mapMutations({ updateaData: 'UPDATE_DATA' }),
-    func () {
-      const textFieldName = new MDCTextField(document.querySelector('.name'))
-      const textFieldAdd = new MDCTextField(document.querySelector('.add'))
-      const textFieldMob = new MDCTextField(document.querySelector('.mob'))
+    func: function (event) {
+      const textFieldName = new MDCTextField(document.querySelector('.name')).value
+      const textFieldAdd = new MDCTextField(document.querySelector('.add')).value
+      const textFieldMob = new MDCTextField(document.querySelector('.mob')).value
       console.log('chandan', textFieldName.value, textFieldAdd.value, textFieldMob.value)
+      const obj = {name: textFieldName, address: textFieldAdd, mob: textFieldMob}
+      this.updateaData(obj)
     }
   }
 }
