@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import userView from '@/components/userView'
 
 Vue.use(Router)
 Vue.use(Vuex)
@@ -10,8 +10,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'user-view',
+      component: userView
     }
   ]
 })

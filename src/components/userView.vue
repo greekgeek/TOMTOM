@@ -25,10 +25,10 @@
 import { mapMutations, mapGetters, mapState } from 'vuex'
 import {MDCTextField} from '@material/textfield'
 export default {
-  name: 'HelloWorld',
+  name: 'user-view',
   data () {
     return {
-      name: 'Hello'
+      name: 'user-view'
     }
   },
   computed: {
